@@ -1,10 +1,18 @@
 module Update exposing (..)
+{-| A library for markdown parsing. This is just an Elm API built on top of the
+[marked](https://github.com/chjj/marked) project which focuses on speed.
 
+# Parsing Markdown
+@docs update
+-}
 import Routing exposing (parseLocation)
 import Messages exposing (Msg(..))
 import Models exposing (Model)
 import Players.Update
 
+{-| Does nothing yet
+   init == None
+-}
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of 

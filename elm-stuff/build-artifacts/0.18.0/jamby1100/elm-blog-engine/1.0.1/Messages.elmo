@@ -1,0 +1,6 @@
+var _jamby1100$elm_blog_engine$Messages$OnLocationChange = function (a) {
+	return {ctor: 'OnLocationChange', _0: a};
+};
+var _jamby1100$elm_blog_engine$Messages$PlayersMsg = function (a) {
+	return {ctor: 'PlayersMsg', _0: a};
+};

@@ -1,0 +1,59 @@
+var _jamby1100$elm_blog_engine$Players_Update$updatePlayer = F2(
+	function (updatePlayer, players) {
+		var select = function (existingPlayer) {
+			return _elm_lang$core$Native_Utils.eq(existingPlayer.id, updatePlayer.id) ? updatePlayer : existingPlayer;
+		};
+		return A2(_elm_lang$core$List$map, select, players);
+	});
+var _jamby1100$elm_blog_engine$Players_Update$changeLevelCommands = F3(
+	function (playerId, howMuch, players) {
+		var cmdForPlayer = function (existingPlayer) {
+			return _elm_lang$core$Native_Utils.eq(existingPlayer.id, playerId) ? _jamby1100$elm_blog_engine$Players_Commands$save(
+				_elm_lang$core$Native_Utils.update(
+					existingPlayer,
+					{level: existingPlayer.level + howMuch})) : _elm_lang$core$Platform_Cmd$none;
+		};
+		return A2(_elm_lang$core$List$map, cmdForPlayer, players);
+	});
+var _jamby1100$elm_blog_engine$Players_Update$update = F2(
+	function (message, players) {
+		var _p0 = message;
+		switch (_p0.ctor) {
+			case 'OnFetchAll':
+				if (_p0._0.ctor === 'Ok') {
+					return {ctor: '_Tuple2', _0: _p0._0._0, _1: _elm_lang$core$Platform_Cmd$none};
+				} else {
+					return {ctor: '_Tuple2', _0: players, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'ShowPlayers':
+				return {
+					ctor: '_Tuple2',
+					_0: players,
+					_1: _elm_lang$navigation$Navigation$newUrl('#players')
+				};
+			case 'ShowPlayer':
+				return {
+					ctor: '_Tuple2',
+					_0: players,
+					_1: _elm_lang$navigation$Navigation$newUrl(
+						A2(_elm_lang$core$Basics_ops['++'], '#players/', _p0._0))
+				};
+			case 'ChangeLevel':
+				return {
+					ctor: '_Tuple2',
+					_0: players,
+					_1: _elm_lang$core$Platform_Cmd$batch(
+						A3(_jamby1100$elm_blog_engine$Players_Update$changeLevelCommands, _p0._0, _p0._1, players))
+				};
+			default:
+				if (_p0._0.ctor === 'Ok') {
+					return {
+						ctor: '_Tuple2',
+						_0: A2(_jamby1100$elm_blog_engine$Players_Update$updatePlayer, _p0._0._0, players),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: players, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+		}
+	});

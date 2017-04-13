@@ -1,0 +1,10 @@
+var _jamby1100$elm_blog_engine$Models$initialModel = function (route) {
+	return {
+		players: {ctor: '[]'},
+		route: route
+	};
+};
+var _jamby1100$elm_blog_engine$Models$Model = F2(
+	function (a, b) {
+		return {players: a, route: b};
+	});
