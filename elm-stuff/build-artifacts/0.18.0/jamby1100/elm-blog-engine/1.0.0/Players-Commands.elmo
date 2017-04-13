@@ -1,0 +1,63 @@
+var _jamby1100$elm_blog_engine$Players_Commands$memberEncoded = function (player) {
+	var list = {
+		ctor: '::',
+		_0: {
+			ctor: '_Tuple2',
+			_0: 'id',
+			_1: _elm_lang$core$Json_Encode$string(player.id)
+		},
+		_1: {
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'name',
+				_1: _elm_lang$core$Json_Encode$string(player.name)
+			},
+			_1: {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'level',
+					_1: _elm_lang$core$Json_Encode$int(player.level)
+				},
+				_1: {ctor: '[]'}
+			}
+		}
+	};
+	return _elm_lang$core$Json_Encode$object(list);
+};
+var _jamby1100$elm_blog_engine$Players_Commands$saveUrl = function (playerId) {
+	return A2(_elm_lang$core$Basics_ops['++'], 'http://localhost:4000/players/', playerId);
+};
+var _jamby1100$elm_blog_engine$Players_Commands$memberDecoder = A5(
+	_elm_lang$core$Json_Decode$map4,
+	_jamby1100$elm_blog_engine$Players_Models$Player,
+	A2(_elm_lang$core$Json_Decode$field, 'id', _elm_lang$core$Json_Decode$string),
+	A2(_elm_lang$core$Json_Decode$field, 'name', _elm_lang$core$Json_Decode$string),
+	A2(_elm_lang$core$Json_Decode$field, 'body', _elm_lang$core$Json_Decode$string),
+	A2(_elm_lang$core$Json_Decode$field, 'level', _elm_lang$core$Json_Decode$int));
+var _jamby1100$elm_blog_engine$Players_Commands$saveRequest = function (player) {
+	return _elm_lang$http$Http$request(
+		{
+			body: _elm_lang$http$Http$jsonBody(
+				_jamby1100$elm_blog_engine$Players_Commands$memberEncoded(player)),
+			expect: _elm_lang$http$Http$expectJson(_jamby1100$elm_blog_engine$Players_Commands$memberDecoder),
+			headers: {ctor: '[]'},
+			method: 'PATCH',
+			timeout: _elm_lang$core$Maybe$Nothing,
+			url: _jamby1100$elm_blog_engine$Players_Commands$saveUrl(player.id),
+			withCredentials: false
+		});
+};
+var _jamby1100$elm_blog_engine$Players_Commands$save = function (player) {
+	return A2(
+		_elm_lang$http$Http$send,
+		_jamby1100$elm_blog_engine$Players_Messages$OnSave,
+		_jamby1100$elm_blog_engine$Players_Commands$saveRequest(player));
+};
+var _jamby1100$elm_blog_engine$Players_Commands$collectionDecoder = _elm_lang$core$Json_Decode$list(_jamby1100$elm_blog_engine$Players_Commands$memberDecoder);
+var _jamby1100$elm_blog_engine$Players_Commands$fetchAllUrl = 'http://localhost:4000/players';
+var _jamby1100$elm_blog_engine$Players_Commands$fetchAll = A2(
+	_elm_lang$http$Http$send,
+	_jamby1100$elm_blog_engine$Players_Messages$OnFetchAll,
+	A2(_elm_lang$http$Http$get, _jamby1100$elm_blog_engine$Players_Commands$fetchAllUrl, _jamby1100$elm_blog_engine$Players_Commands$collectionDecoder));

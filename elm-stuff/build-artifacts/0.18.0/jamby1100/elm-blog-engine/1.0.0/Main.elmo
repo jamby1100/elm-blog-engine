@@ -1,0 +1,15 @@
+var _jamby1100$elm_blog_engine$Main$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _jamby1100$elm_blog_engine$Main$init = function (location) {
+	var currentRoute = _jamby1100$elm_blog_engine$Routing$parseLocation(location);
+	return {
+		ctor: '_Tuple2',
+		_0: _jamby1100$elm_blog_engine$Models$initialModel(currentRoute),
+		_1: A2(_elm_lang$core$Platform_Cmd$map, _jamby1100$elm_blog_engine$Messages$PlayersMsg, _jamby1100$elm_blog_engine$Players_Commands$fetchAll)
+	};
+};
+var _jamby1100$elm_blog_engine$Main$main = A2(
+	_elm_lang$navigation$Navigation$program,
+	_jamby1100$elm_blog_engine$Messages$OnLocationChange,
+	{init: _jamby1100$elm_blog_engine$Main$init, view: _jamby1100$elm_blog_engine$View$view, update: _jamby1100$elm_blog_engine$Update$update, subscriptions: _jamby1100$elm_blog_engine$Main$subscriptions})();

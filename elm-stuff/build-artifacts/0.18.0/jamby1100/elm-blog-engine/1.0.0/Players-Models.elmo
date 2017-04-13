@@ -1,0 +1,5 @@
+var _jamby1100$elm_blog_engine$Players_Models$new = {id: '0', name: '', body: '', level: 1};
+var _jamby1100$elm_blog_engine$Players_Models$Player = F4(
+	function (a, b, c, d) {
+		return {id: a, name: b, body: c, level: d};
+	});

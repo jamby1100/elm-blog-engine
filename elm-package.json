@@ -1,13 +1,13 @@
 {
     "version": "1.0.0",
-    "summary": "helpful summary of your project, less than 80 characters",
+    "summary": "A Basic Blogging Platform in Elm",
     "repository": "https://github.com/jamby1100/elm-blog-engine.git",
     "license": "BSD3",
     "source-directories": [
-        "."
+        "src"
     ],
     "exposed-modules": [
-    
+        "Main"
     ],
     "dependencies": {
         "elm-lang/core": "5.1.1 <= v < 6.0.0",

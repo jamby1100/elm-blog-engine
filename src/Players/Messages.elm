@@ -1,4 +1,4 @@
-module PlayersMessages exposing (..)
+module Players.Messages exposing (..)
 
 import Players.Models exposing (PlayerId, Player)
 import Http

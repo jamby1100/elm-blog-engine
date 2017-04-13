@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "name": "Main",
+    "comment": " A library for markdown parsing. This is just an Elm API built on top of the\n[marked](https://github.com/chjj/marked) project which focuses on speed.\n\n# Parsing Markdown\n@docs init, subscriptions, main\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "init",
+        "comment": " Does nothing yet\n   init == None\n",
+        "type": "Navigation.Location -> ( Models.Model, Platform.Cmd.Cmd Messages.Msg )"
+      },
+      {
+        "name": "main",
+        "comment": " Does nothing yet\n    main == Navigation.program\n",
+        "type": "Platform.Program Basics.Never Models.Model Messages.Msg"
+      },
+      {
+        "name": "subscriptions",
+        "comment": " Does nothing yet\n    subscriptions == Sub.none\n",
+        "type": "Models.Model -> Platform.Sub.Sub Messages.Msg"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  }
+]
