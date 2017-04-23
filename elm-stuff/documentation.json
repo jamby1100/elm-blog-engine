@@ -24,20 +24,6 @@
     "generated-with-elm-version": "0.18.0"
   },
   {
-    "name": "Update",
-    "comment": " A library for markdown parsing. This is just an Elm API built on top of the\n[marked](https://github.com/chjj/marked) project which focuses on speed.\n\n# Parsing Markdown\n@docs update\n",
-    "aliases": [],
-    "types": [],
-    "values": [
-      {
-        "name": "update",
-        "comment": " Does nothing yet\n   init == None\n",
-        "type": "Messages.Msg -> Models.Model -> ( Models.Model, Platform.Cmd.Cmd Messages.Msg )"
-      }
-    ],
-    "generated-with-elm-version": "0.18.0"
-  },
-  {
     "name": "View",
     "comment": " A library for markdown parsing. This is just an Elm API built on top of the\n[marked](https://github.com/chjj/marked) project which focuses on speed.\n\n# Parsing Markdown\n@docs view, page, playerShowPage, notFoundView\n",
     "aliases": [],
@@ -67,6 +53,20 @@
     "generated-with-elm-version": "0.18.0"
   },
   {
+    "name": "Update",
+    "comment": " A library for markdown parsing. This is just an Elm API built on top of the\n[marked](https://github.com/chjj/marked) project which focuses on speed.\n\n# Parsing Markdown\n@docs update\n",
+    "aliases": [],
+    "types": [],
+    "values": [
+      {
+        "name": "update",
+        "comment": " Does nothing yet\n   init == None\n",
+        "type": "Messages.Msg -> Models.Model -> ( Models.Model, Platform.Cmd.Cmd Messages.Msg )"
+      }
+    ],
+    "generated-with-elm-version": "0.18.0"
+  },
+  {
     "name": "Models",
     "comment": " A library for markdown parsing. This is just an Elm API built on top of the\n[marked](https://github.com/chjj/marked) project which focuses on speed.\n\n# Parsing Markdown\n@docs Model, initialModel\n",
     "aliases": [
@@ -88,31 +88,44 @@
     "generated-with-elm-version": "0.18.0"
   },
   {
-    "name": "Messages",
-    "comment": " A library for markdown parsing. This is just an Elm API built on top of the\n[marked](https://github.com/chjj/marked) project which focuses on speed.\n\n# Parsing Markdown\n@docs Msg\n",
+    "name": "Routing",
+    "comment": " A library for markdown parsing. This is just an Elm API built on top of the\n[marked](https://github.com/chjj/marked) project which focuses on speed.\n\n# Parsing Markdown\n@docs Route, matchers, parseLocation\n",
     "aliases": [],
     "types": [
       {
-        "name": "Msg",
+        "name": "Route",
         "comment": " Does nothing yet\n   init == None\n",
         "args": [],
         "cases": [
           [
-            "PlayersMsg",
+            "PlayersRoute",
+            []
+          ],
+          [
+            "PlayerRoute",
             [
-              "Players.Messages.Msg"
+              "Players.Models.PlayerId"
             ]
           ],
           [
-            "OnLocationChange",
-            [
-              "Navigation.Location"
-            ]
+            "NotFoundRoute",
+            []
           ]
         ]
       }
     ],
-    "values": [],
+    "values": [
+      {
+        "name": "matchers",
+        "comment": " Does nothing yet\n   init == None\n",
+        "type": "UrlParser.Parser (Routing.Route -> a) a"
+      },
+      {
+        "name": "parseLocation",
+        "comment": " Does nothing yet\n   init == None\n",
+        "type": "Navigation.Location -> Routing.Route"
+      }
+    ],
     "generated-with-elm-version": "0.18.0"
   },
   {
@@ -165,44 +178,31 @@
     "generated-with-elm-version": "0.18.0"
   },
   {
-    "name": "Routing",
-    "comment": " A library for markdown parsing. This is just an Elm API built on top of the\n[marked](https://github.com/chjj/marked) project which focuses on speed.\n\n# Parsing Markdown\n@docs Route, matchers, parseLocation\n",
+    "name": "Messages",
+    "comment": " A library for markdown parsing. This is just an Elm API built on top of the\n[marked](https://github.com/chjj/marked) project which focuses on speed.\n\n# Parsing Markdown\n@docs Msg\n",
     "aliases": [],
     "types": [
       {
-        "name": "Route",
+        "name": "Msg",
         "comment": " Does nothing yet\n   init == None\n",
         "args": [],
         "cases": [
           [
-            "PlayersRoute",
-            []
-          ],
-          [
-            "PlayerRoute",
+            "PlayersMsg",
             [
-              "Players.Models.PlayerId"
+              "Players.Messages.Msg"
             ]
           ],
           [
-            "NotFoundRoute",
-            []
+            "OnLocationChange",
+            [
+              "Navigation.Location"
+            ]
           ]
         ]
       }
     ],
-    "values": [
-      {
-        "name": "matchers",
-        "comment": " Does nothing yet\n   init == None\n",
-        "type": "UrlParser.Parser (Routing.Route -> a) a"
-      },
-      {
-        "name": "parseLocation",
-        "comment": " Does nothing yet\n   init == None\n",
-        "type": "Navigation.Location -> Routing.Route"
-      }
-    ],
+    "values": [],
     "generated-with-elm-version": "0.18.0"
   }
 ]

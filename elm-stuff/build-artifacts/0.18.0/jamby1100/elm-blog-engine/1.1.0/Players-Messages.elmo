@@ -1,0 +1,14 @@
+var _jamby1100$elm_blog_engine$Players_Messages$OnSave = function (a) {
+	return {ctor: 'OnSave', _0: a};
+};
+var _jamby1100$elm_blog_engine$Players_Messages$ChangeLevel = F2(
+	function (a, b) {
+		return {ctor: 'ChangeLevel', _0: a, _1: b};
+	});
+var _jamby1100$elm_blog_engine$Players_Messages$ShowPlayer = function (a) {
+	return {ctor: 'ShowPlayer', _0: a};
+};
+var _jamby1100$elm_blog_engine$Players_Messages$ShowPlayers = {ctor: 'ShowPlayers'};
+var _jamby1100$elm_blog_engine$Players_Messages$OnFetchAll = function (a) {
+	return {ctor: 'OnFetchAll', _0: a};
+};

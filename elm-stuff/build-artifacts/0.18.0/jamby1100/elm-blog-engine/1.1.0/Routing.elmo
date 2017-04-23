@@ -1,0 +1,36 @@
+var _jamby1100$elm_blog_engine$Routing$NotFoundRoute = {ctor: 'NotFoundRoute'};
+var _jamby1100$elm_blog_engine$Routing$PlayerRoute = function (a) {
+	return {ctor: 'PlayerRoute', _0: a};
+};
+var _jamby1100$elm_blog_engine$Routing$PlayersRoute = {ctor: 'PlayersRoute'};
+var _jamby1100$elm_blog_engine$Routing$matchers = _evancz$url_parser$UrlParser$oneOf(
+	{
+		ctor: '::',
+		_0: A2(_evancz$url_parser$UrlParser$map, _jamby1100$elm_blog_engine$Routing$PlayersRoute, _evancz$url_parser$UrlParser$top),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_evancz$url_parser$UrlParser$map,
+				_jamby1100$elm_blog_engine$Routing$PlayerRoute,
+				A2(
+					_evancz$url_parser$UrlParser_ops['</>'],
+					_evancz$url_parser$UrlParser$s('players'),
+					_evancz$url_parser$UrlParser$string)),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_evancz$url_parser$UrlParser$map,
+					_jamby1100$elm_blog_engine$Routing$PlayersRoute,
+					_evancz$url_parser$UrlParser$s('players')),
+				_1: {ctor: '[]'}
+			}
+		}
+	});
+var _jamby1100$elm_blog_engine$Routing$parseLocation = function (location) {
+	var _p0 = A2(_evancz$url_parser$UrlParser$parseHash, _jamby1100$elm_blog_engine$Routing$matchers, location);
+	if (_p0.ctor === 'Just') {
+		return _p0._0;
+	} else {
+		return _jamby1100$elm_blog_engine$Routing$NotFoundRoute;
+	}
+};

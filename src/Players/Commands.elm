@@ -25,7 +25,7 @@ fetchAll =
 -}
 fetchAllUrl : String
 fetchAllUrl = 
-  "http://localhost:4000/players"
+  "http://localhost:4000/posts"
 
 -- Delegate encode each member of JSON to memberDecoder
 {-| Does nothing yet
@@ -51,7 +51,7 @@ memberDecoder =
 -}
 saveUrl : PlayerId -> String
 saveUrl playerId = 
-  "http://localhost:4000/players/" ++ playerId
+  "http://localhost:4000/posts/" ++ playerId
 
 {-| Does nothing yet
    init == None
