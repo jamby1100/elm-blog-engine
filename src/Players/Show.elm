@@ -5,6 +5,7 @@ import Html.Attributes exposing (class, value, href)
 import Html.Events exposing (onClick)
 import Players.Messages exposing (..)
 import Players.Models exposing (..)
+import Markdown
 
 view : Player -> Html Msg
 view model =
@@ -12,6 +13,15 @@ view model =
     [ nav model
     , form model 
     ]
+
+--view : Player -> Html Msg
+--view model = 
+--  Grid.container []
+--    [ CDN.stylesheet -- Responsive fixed width container
+--    , nav model 
+--    , list model
+--    ]
+
 
 -- Gets the player back to list view
 nav : Player -> Html Msg 
@@ -24,6 +34,7 @@ form player =
   div
     [ class "m3" ]
     [ h1 [] [ text player.title ]
+    , Markdown.toHtml [] player.body
     , formLevel player 
     ]
 
@@ -60,4 +71,3 @@ listBtn =
     , onClick ShowPlayers
     ]
     [ i [ class "fa fa-chevron-left mr1"] [], text "List"]
-

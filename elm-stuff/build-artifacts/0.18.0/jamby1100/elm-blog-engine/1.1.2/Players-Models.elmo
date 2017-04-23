@@ -1,0 +1,5 @@
+var _jamby1100$elm_blog_engine$Players_Models$new = {id: '0', title: '', body: '', user_id: '', published_at: '', published_until: '', created_at: '', likes: 0};
+var _jamby1100$elm_blog_engine$Players_Models$Player = F8(
+	function (a, b, c, d, e, f, g, h) {
+		return {id: a, title: b, body: c, user_id: d, published_at: e, published_until: f, created_at: g, likes: h};
+	});

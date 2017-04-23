@@ -1,0 +1,236 @@
+var _jamby1100$elm_blog_engine$Players_List$showBtn = function (player) {
+	return A2(
+		_elm_lang$html$Html$button,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('btn regular'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(
+					_jamby1100$elm_blog_engine$Players_Messages$ShowPlayer(player.id)),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$i,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('fa fa-pencil mr1'),
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('show'),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _jamby1100$elm_blog_engine$Players_List$playerRow = function (player) {
+	return A2(
+		_elm_lang$html$Html$tr,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$td,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$br,
+						{ctor: '[]'},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$br,
+							{ctor: '[]'},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$b,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text(player.title),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$br,
+									{ctor: '[]'},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_evancz$elm_markdown$Markdown$toHtml,
+										{ctor: '[]'},
+										player.body),
+									_1: {
+										ctor: '::',
+										_0: _jamby1100$elm_blog_engine$Players_List$showBtn(player),
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _jamby1100$elm_blog_engine$Players_List$list = function (players) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('p2'),
+					_1: {ctor: '[]'}
+				},
+				A2(_elm_lang$core$List$map, _jamby1100$elm_blog_engine$Players_List$playerRow, players)),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: A2(
+							_rundis$elm_bootstrap$Bootstrap_Grid$container,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: A2(
+									_rundis$elm_bootstrap$Bootstrap_Grid$row,
+									{
+										ctor: '::',
+										_0: _rundis$elm_bootstrap$Bootstrap_Grid_Row$topXs,
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: A2(
+											_rundis$elm_bootstrap$Bootstrap_Grid$col,
+											{
+												ctor: '::',
+												_0: _rundis$elm_bootstrap$Bootstrap_Grid_Col$xs4,
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('col1-row1'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_rundis$elm_bootstrap$Bootstrap_Grid$col,
+												{
+													ctor: '::',
+													_0: _rundis$elm_bootstrap$Bootstrap_Grid_Col$xs8,
+													_1: {ctor: '[]'}
+												},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('col2-row1'),
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										}
+									}),
+								_1: {
+									ctor: '::',
+									_0: _rundis$elm_bootstrap$Bootstrap_Grid$simpleRow(
+										{
+											ctor: '::',
+											_0: A2(
+												_rundis$elm_bootstrap$Bootstrap_Grid$col,
+												{
+													ctor: '::',
+													_0: _rundis$elm_bootstrap$Bootstrap_Grid_Col$xs4,
+													_1: {ctor: '[]'}
+												},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('col1-row2'),
+													_1: {ctor: '[]'}
+												}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_rundis$elm_bootstrap$Bootstrap_Grid$col,
+													{
+														ctor: '::',
+														_0: _rundis$elm_bootstrap$Bootstrap_Grid_Col$xs6,
+														_1: {ctor: '[]'}
+													},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('col2-row2'),
+														_1: {ctor: '[]'}
+													}),
+												_1: {ctor: '[]'}
+											}
+										}),
+									_1: {ctor: '[]'}
+								}
+							}),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _jamby1100$elm_blog_engine$Players_List$nav = function (players) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 white bg-black'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('left p2'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('Players'),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _jamby1100$elm_blog_engine$Players_List$view = function (players) {
+	return A2(
+		_rundis$elm_bootstrap$Bootstrap_Grid$container,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _rundis$elm_bootstrap$Bootstrap_CDN$stylesheet,
+			_1: {
+				ctor: '::',
+				_0: _jamby1100$elm_blog_engine$Players_List$nav(players),
+				_1: {
+					ctor: '::',
+					_0: _jamby1100$elm_blog_engine$Players_List$list(players),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
