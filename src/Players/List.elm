@@ -82,10 +82,9 @@ playerRow player =
       
       br [] []
       ,br [] []
-      ,b [] [(text player.name)]
+      ,b [] [(text player.title)]
       ,br [] []
       ,Markdown.toHtml [] player.body
-      ,text (toString player.level) 
       ,showBtn player
       ]
     ]

@@ -17,9 +17,13 @@ type alias PlayerId =
 -}
 type alias Player = 
   { id : PlayerId
-  , name : String
+  , title : String
   , body : String
-  , level : Int 
+  , user_id : String
+  , published_at : String
+  , published_until : String
+  , created_at : String 
+  , likes : Int
   }
 
 {-| Does nothing yet
@@ -28,7 +32,11 @@ type alias Player =
 new : Player
 new =
   { id = "0"
-  , name = ""
+  , title = ""
   , body = ""
-  , level = 1
+  , user_id = ""
+  , published_at = ""
+  , published_until = ""
+  , created_at = ""
+  , likes = 0
   }

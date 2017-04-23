@@ -23,7 +23,7 @@ form : Player -> Html Msg
 form player = 
   div
     [ class "m3" ]
-    [ h1 [] [ text player.name ]
+    [ h1 [] [ text player.title ]
     , formLevel player 
     ]
 
@@ -34,8 +34,7 @@ formLevel player =
     ]
     [ div [ class "col col-5" ] [ text "Level" ]
     , div [ class "col col-7"]
-      [ span [ class "h2 bold"] [ text (toString player.level)]
-      , btnLevelDecrease player
+      [ btnLevelDecrease player
       , btnLevelIncrease player
       ]
     ]

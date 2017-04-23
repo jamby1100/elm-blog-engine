@@ -43,7 +43,7 @@ changeLevelCommands playerId howMuch players =
   let
     cmdForPlayer existingPlayer = 
       if existingPlayer.id == playerId then
-        save { existingPlayer | level = existingPlayer.level + howMuch }
+        save { existingPlayer | likes = existingPlayer.likes + howMuch }
       else
         Cmd.none
   in 

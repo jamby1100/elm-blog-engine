@@ -40,11 +40,15 @@ collectionDecoder =
 -}
 memberDecoder : Decode.Decoder Player 
 memberDecoder = 
-  Decode.map4 Player
+  Decode.map8 Player
     (field "id" Decode.string)
-    (field "name" Decode.string)
+    (field "title" Decode.string)
     (field "body" Decode.string)
-    (field "level" Decode.int)
+    (field "user_id" Decode.string)
+    (field "published_at" Decode.string)
+    (field "published_until" Decode.string)
+    (field "created_at" Decode.string)
+    (field "likes" Decode.int)
     
 {-| Does nothing yet
    init == None
@@ -78,16 +82,31 @@ save player =
 
 {-| Does nothing yet
    init == None
+
+  Decode.map8 Player
+    (field "id" Decode.string)
+    (field "title" Decode.string)
+    (field "body" Decode.string)
+    (field "user_id" Decode.string)
+    (field "published_at" Decode.string)
+    (field "published_until" Decode.string)
+    (field "created_at" Decode.string)
+    (field "updated_at" Decode.string)
 -}
+
 memberEncoded : Player -> Encode.Value 
 memberEncoded player = 
   let 
     list = 
       [ ( "id", Encode.string player.id )
-      , ( "name", Encode.string player.name )
-      , ( "level", Encode.int player.level )
+      , ( "title", Encode.string player.title )
+      , ( "body", Encode.string player.body )
+      , ( "user_id", Encode.string player.user_id )
+      , ( "published_at", Encode.string player.published_at )
+      , ( "published_until", Encode.string player.published_until )
+      , ( "created_at", Encode.string player.created_at )
+      , ( "likes", Encode.int player.likes)
       ]
   in 
     list
       |> Encode.object
-
