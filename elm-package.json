@@ -1,5 +1,5 @@
 {
-    "version": "1.1.4",
+    "version": "2.0.0",
     "summary": "A Basic Blogging Platform in Elm",
     "repository": "https://github.com/jamby1100/elm-blog-engine.git",
     "license": "BSD3",

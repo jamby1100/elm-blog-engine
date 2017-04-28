@@ -35,6 +35,17 @@ var _jamby1100$elm_blog_engine$View$page = function (model) {
 				_jamby1100$elm_blog_engine$Players_List$view(model.players));
 		case 'PlayerRoute':
 			return A2(_jamby1100$elm_blog_engine$View$playerShowPage, model, _p1._0);
+		case 'CategoryRoute':
+			return A2(
+				_elm_lang$html$Html$map,
+				_jamby1100$elm_blog_engine$Messages$PlayersMsg,
+				_jamby1100$elm_blog_engine$Players_List$view(
+					A2(
+						_elm_lang$core$List$filter,
+						function (player) {
+							return _elm_lang$core$Native_Utils.eq(player.category_slug, _p1._0);
+						},
+						model.players)));
 		default:
 			return _jamby1100$elm_blog_engine$View$notFoundView;
 	}
