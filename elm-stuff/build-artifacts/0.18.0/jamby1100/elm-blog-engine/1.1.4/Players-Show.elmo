@@ -1,0 +1,161 @@
+var _jamby1100$elm_blog_engine$Players_Show$listBtn = A2(
+	_elm_lang$html$Html$button,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('btn regular'),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Events$onClick(_jamby1100$elm_blog_engine$Players_Messages$ShowPlayers),
+			_1: {ctor: '[]'}
+		}
+	},
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html$text('< Menu'),
+		_1: {ctor: '[]'}
+	});
+var _jamby1100$elm_blog_engine$Players_Show$btnLevelIncrease = function (player) {
+	return A2(
+		_elm_lang$html$Html$a,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('btn ml1 h1'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(
+					A2(_jamby1100$elm_blog_engine$Players_Messages$ChangeLevel, player.id, 1)),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$i,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('fa fa-plus-circle'),
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {ctor: '[]'}
+		});
+};
+var _jamby1100$elm_blog_engine$Players_Show$btnLevelDecrease = function (player) {
+	return A2(
+		_elm_lang$html$Html$a,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('btn ml1 h1'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(
+					A2(_jamby1100$elm_blog_engine$Players_Messages$ChangeLevel, player.id, -1)),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$i,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('fa fa-minus-circle'),
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {ctor: '[]'}
+		});
+};
+var _jamby1100$elm_blog_engine$Players_Show$formLevel = function (player) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('clearfix py1'),
+			_1: {ctor: '[]'}
+		},
+		{ctor: '[]'});
+};
+var _jamby1100$elm_blog_engine$Players_Show$form = function (player) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('m3'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(player.title),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$h5,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(
+							_elm_lang$core$String$toUpper(player.category_slug)),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$br,
+						{ctor: '[]'},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_evancz$elm_markdown$Markdown$toHtml,
+							{ctor: '[]'},
+							player.body),
+						_1: {
+							ctor: '::',
+							_0: _jamby1100$elm_blog_engine$Players_Show$formLevel(player),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		});
+};
+var _jamby1100$elm_blog_engine$Players_Show$nav = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 white bg-black p1'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _jamby1100$elm_blog_engine$Players_Show$listBtn,
+			_1: {ctor: '[]'}
+		});
+};
+var _jamby1100$elm_blog_engine$Players_Show$view = function (model) {
+	return A2(
+		_rundis$elm_bootstrap$Bootstrap_Grid$container,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _rundis$elm_bootstrap$Bootstrap_CDN$stylesheet,
+			_1: {
+				ctor: '::',
+				_0: _jamby1100$elm_blog_engine$Players_Show$nav(model),
+				_1: {
+					ctor: '::',
+					_0: _jamby1100$elm_blog_engine$Players_Show$form(model),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};

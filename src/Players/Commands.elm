@@ -43,11 +43,11 @@ memberDecoder =
   Decode.map8 Player
     (field "id" Decode.string)
     (field "title" Decode.string)
+    (field "preview" Decode.string)
     (field "body" Decode.string)
     (field "user_id" Decode.string)
     (field "published_at" Decode.string)
-    (field "published_until" Decode.string)
-    (field "created_at" Decode.string)
+    (field "category_slug" Decode.string)
     (field "likes" Decode.int)
     
 {-| Does nothing yet
@@ -90,7 +90,7 @@ save player =
     (field "user_id" Decode.string)
     (field "published_at" Decode.string)
     (field "published_until" Decode.string)
-    (field "created_at" Decode.string)
+    (field "category_slug" Decode.string)
     (field "updated_at" Decode.string)
 -}
 
@@ -100,11 +100,11 @@ memberEncoded player =
     list = 
       [ ( "id", Encode.string player.id )
       , ( "title", Encode.string player.title )
+      , ( "preview", Encode.string player.preview )
       , ( "body", Encode.string player.body )
       , ( "user_id", Encode.string player.user_id )
       , ( "published_at", Encode.string player.published_at )
-      , ( "published_until", Encode.string player.published_until )
-      , ( "created_at", Encode.string player.created_at )
+      , ( "category_slug", Encode.string player.category_slug )
       , ( "likes", Encode.int player.likes)
       ]
   in 

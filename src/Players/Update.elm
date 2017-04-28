@@ -17,10 +17,10 @@ update message players =
       ( players, Cmd.none )
 
     ShowPlayers -> 
-      ( players, Navigation.newUrl "#players" )
+      ( players, Navigation.newUrl "#posts" )
 
     ShowPlayer id ->
-      ( players, Navigation.newUrl ("#players/" ++ id) )
+      ( players, Navigation.newUrl ("#posts/" ++ id) )
 
     -- call helper function changeLevelCommands 
     -- use Cmd.batch to batch thru the list of commands it returns

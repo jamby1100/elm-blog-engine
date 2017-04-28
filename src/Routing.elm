@@ -3,11 +3,19 @@ module Routing exposing (..)
 [marked](https://github.com/chjj/marked) project which focuses on speed.
 
 # Parsing Markdown
-@docs Route, matchers, parseLocation
+@docs Route, matchers, parseLocation, CategoryName
 -}
 import Navigation exposing (Location)
 import Players.Models exposing (PlayerId)
 import UrlParser exposing (..)
+
+{-| Does nothing yet
+   init == None
+-}
+
+type alias CategoryName = 
+  String
+  
 
 -- These are the available routes in the app
 {-| Does nothing yet
@@ -16,18 +24,20 @@ import UrlParser exposing (..)
 type Route
   = PlayersRoute
   | PlayerRoute PlayerId
+  | CategoryRoute CategoryName
   | NotFoundRoute
 
+-- we define route matchers
 {-| Does nothing yet
    init == None
 -}
--- we define route matchers
 matchers : Parser ( Route -> a) a
 matchers = 
   oneOf
     [ map PlayersRoute top -- Top Route
-    , map PlayerRoute (s "players" </> string) -- /players/id
-    , map PlayersRoute (s "players") -- /players
+    , map PlayerRoute (s "posts" </> string) -- /posts/id
+    , map PlayersRoute (s "posts") -- /posts
+    , map CategoryRoute (s "categories" </> string) -- /categories/:name
     ]
 
 -- Each time browser changes location, we will trigger the Navigation 

@@ -30,30 +30,6 @@ list : List Player -> Html Msg
 list players = 
   div [] 
     [ div [ class "p2" ] ( List.map playerRow players )
-    , div [] 
-      [ Grid.container []
-        [ Grid.row
-            [ Row.topXs ]
-            [ Grid.col
-                [ Col.xs4 ]
-                [ text "col1-row1"]
-
-            , Grid.col
-                [ Col.xs8 ]
-                [ text "col2-row1"]
-            ]
-        , Grid.simpleRow
-            [ Grid.col
-                [ Col.xs4 ]
-                [ text "col1-row2"]
-
-            , Grid.col
-                [ Col.xs6 ]
-                [ text "col2-row2"]
-
-            ]
-          ]
-        ]
       ]
 
 -- has buttons to see show view
@@ -74,18 +50,20 @@ list players =
 
 playerRow : Player -> Html Msg
 playerRow player = 
-  tr []
-    [ td [] [  
-      --b [] [
-      --  (br [] [(text player.name)])
-      --]
-      
-      br [] []
-      ,br [] []
-      ,b [] [(text player.title)]
-      ,br [] []
-      ,Markdown.toHtml [] player.body
-      ,showBtn player
+  div [] 
+    [ Grid.container []
+      [ Grid.row []
+        [ Grid.col 
+          [ Col.md10 ]
+          [ b [] [(text player.title)]
+          , Markdown.toHtml [] player.preview
+          ]
+        , Grid.col 
+          [ Col.md2 ]
+          [ h1 [] [ showBtn player ]
+          ]
+
+        ]
       ]
     ]
 
@@ -96,4 +74,29 @@ showBtn player =
     [ class "btn regular"
     , onClick (ShowPlayer player.id)
     ]
-    [ i [ class "fa fa-pencil mr1" ] [], text "show" ]
+    [ text ">>" ]
+
+    --, div [] 
+    --  [ Grid.container []
+    --    [ Grid.row
+    --        [ Row.topXs ]
+    --        [ Grid.col
+    --            [ Col.xs4 ]
+    --            [ text "col1-row1"]
+
+    --        , Grid.col
+    --            [ Col.xs8 ]
+    --            [ text "col2-row1"]
+    --        ]
+    --    , Grid.simpleRow
+    --        [ Grid.col
+    --            [ Col.xs4 ]
+    --            [ text "col1-row2"]
+
+    --        , Grid.col
+    --            [ Col.xs6 ]
+    --            [ text "col2-row2"]
+
+    --        ]
+    --      ]
+    --    ]

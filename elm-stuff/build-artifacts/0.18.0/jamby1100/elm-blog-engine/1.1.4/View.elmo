@@ -1,0 +1,51 @@
+var _jamby1100$elm_blog_engine$View$notFoundView = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html$text('not Found'),
+		_1: {ctor: '[]'}
+	});
+var _jamby1100$elm_blog_engine$View$playerShowPage = F2(
+	function (model, playerId) {
+		var maybePlayer = _elm_lang$core$List$head(
+			A2(
+				_elm_lang$core$List$filter,
+				function (player) {
+					return _elm_lang$core$Native_Utils.eq(player.id, playerId);
+				},
+				model.players));
+		var _p0 = maybePlayer;
+		if (_p0.ctor === 'Just') {
+			return A2(
+				_elm_lang$html$Html$map,
+				_jamby1100$elm_blog_engine$Messages$PlayersMsg,
+				_jamby1100$elm_blog_engine$Players_Show$view(_p0._0));
+		} else {
+			return _jamby1100$elm_blog_engine$View$notFoundView;
+		}
+	});
+var _jamby1100$elm_blog_engine$View$page = function (model) {
+	var _p1 = model.route;
+	switch (_p1.ctor) {
+		case 'PlayersRoute':
+			return A2(
+				_elm_lang$html$Html$map,
+				_jamby1100$elm_blog_engine$Messages$PlayersMsg,
+				_jamby1100$elm_blog_engine$Players_List$view(model.players));
+		case 'PlayerRoute':
+			return A2(_jamby1100$elm_blog_engine$View$playerShowPage, model, _p1._0);
+		default:
+			return _jamby1100$elm_blog_engine$View$notFoundView;
+	}
+};
+var _jamby1100$elm_blog_engine$View$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _jamby1100$elm_blog_engine$View$page(model),
+			_1: {ctor: '[]'}
+		});
+};

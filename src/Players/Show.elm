@@ -6,21 +6,26 @@ import Html.Events exposing (onClick)
 import Players.Messages exposing (..)
 import Players.Models exposing (..)
 import Markdown
-
-view : Player -> Html Msg
-view model =
-  div []
-    [ nav model
-    , form model 
-    ]
+import Bootstrap.CDN as CDN
+import Bootstrap.Grid as Grid
+import Bootstrap.Grid.Row as Row
+import Bootstrap.Grid.Col as Col
+import String
 
 --view : Player -> Html Msg
---view model = 
---  Grid.container []
---    [ CDN.stylesheet -- Responsive fixed width container
---    , nav model 
---    , list model
+--view model =
+--  div []
+--    [ nav model
+--    , form model 
 --    ]
+
+view : Player -> Html Msg
+view model = 
+  Grid.container []
+    [ CDN.stylesheet -- Responsive fixed width container
+    , nav model 
+    , form model
+    ]
 
 
 -- Gets the player back to list view
@@ -34,6 +39,8 @@ form player =
   div
     [ class "m3" ]
     [ h1 [] [ text player.title ]
+    , h5 [] [ text (String.toUpper player.category_slug) ]
+    , br [] []
     , Markdown.toHtml [] player.body
     , formLevel player 
     ]
@@ -43,11 +50,11 @@ formLevel player =
   div
     [ class "clearfix py1" 
     ]
-    [ div [ class "col col-5" ] [ text "Level" ]
-    , div [ class "col col-7"]
-      [ btnLevelDecrease player
-      , btnLevelIncrease player
-      ]
+    [ --div [ class "col col-5" ] [ text "Level" ]
+    --, div [ class "col col-7"]
+    --  [ btnLevelDecrease player
+    --  , btnLevelIncrease player
+    --  ]
     ]
 
 -- Added onClick capacity to decrease level
@@ -70,4 +77,5 @@ listBtn =
     [ class "btn regular"
     , onClick ShowPlayers
     ]
-    [ i [ class "fa fa-chevron-left mr1"] [], text "List"]
+    [ text "< Menu"]
+

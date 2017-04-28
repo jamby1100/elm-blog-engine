@@ -5,7 +5,6 @@ module View exposing (..)
 # Parsing Markdown
 @docs view, page, playerShowPage, notFoundView
 -}
-
 import Html exposing (Html, div, text)
 import Messages exposing (Msg(..))
 import Models exposing (Model)
@@ -33,6 +32,8 @@ page model =
       Html.map PlayersMsg (Players.List.view model.players)
     PlayerRoute id ->
       playerShowPage model id
+    CategoryRoute name ->
+      Html.map PlayersMsg (Players.List.view (model.players |> List.filter (\player -> player.category_slug == name) ))
     NotFoundRoute ->
       notFoundView
 

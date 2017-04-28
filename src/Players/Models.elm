@@ -12,17 +12,19 @@ module Players.Models exposing (..)
 type alias PlayerId = 
   String
 
+
+
 {-| Does nothing yet
    init == None
 -}
 type alias Player = 
   { id : PlayerId
   , title : String
+  , preview : String
   , body : String
   , user_id : String
   , published_at : String
-  , published_until : String
-  , created_at : String 
+  , category_slug : String 
   , likes : Int
   }
 
@@ -33,10 +35,10 @@ new : Player
 new =
   { id = "0"
   , title = ""
+  , preview = ""
   , body = ""
   , user_id = ""
   , published_at = ""
-  , published_until = ""
-  , created_at = ""
+  , category_slug = ""
   , likes = 0
   }
